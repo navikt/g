@@ -1,15 +1,22 @@
+# frozen_string_literal: true
+
 require 'date'
 require 'json'
 
 module Grunnbeløp
-  @@grunnbeløp_data = JSON.parse(File.read('./grunnbeløp.json'), object_class: OpenStruct)
+  @grunnbeløp_data = JSON.parse(File.read('./grunnbeløp.json'), object_class: OpenStruct)
+  @date_format = '%Y.%m.%d'
 
-  def self.get_grunnbeløp(needle=nil)
+  def self.get_by_date(needle)
+    datoer = @grunnbeløp_data.grunnbeløp.map { |obj| DateTime.strptime(obj.dato, @date_format) }
+    found = datoer.min_by { |date| (date.to_time - needle.to_time).abs }
+    found = found.strftime(@date_format)
+    @grunnbeløp_data['grunnbeløp'].select { |obj| obj.dato == found }.first
+  end
+
+  def self.get(needle = nil)
     needle ||= Time.now
-    datoer = @@grunnbeløp_data.grunnbeløp.map {|obj| DateTime.strptime(obj.dato, '%Y.%m.%d')}
-    found = datoer.sort_by { |date| (date.to_time - needle.to_time).abs }.first
-    found = found.strftime('%Y.%m.%d')
-    grunnbeløp = @@grunnbeløp_data['grunnbeløp'].select {|obj| obj.dato == found }.first
-    return grunnbeløp.to_h
+    grunnbeløp = get_by_date(needle)
+    grunnbeløp.to_h
   end
 end

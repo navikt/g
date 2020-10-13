@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'grape'
 require 'grape-swagger'
 
@@ -15,7 +17,7 @@ class G < Grape::API
     optional :date, type: String
   end
   get :grunnbeløp do
-    Grunnbeløp::get_grunnbeløp(params[:date])
+    Grunnbeløp.get(params[:date])
   end
 
   add_swagger_documentation  hide_documentation_path: true,
