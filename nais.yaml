@@ -6,7 +6,7 @@ metadata:
   labels:
     team: aura
 spec:
-  image: docker.pkg.github.com/g/g:{{TAG}}
+  image: docker.pkg.github.com/g/g:{{ TAG }}
   port: 9292
   ingresses:
     - https://g.nav.no
