@@ -17,7 +17,9 @@ class G < Grape::API
     optional :date, type: String
   end
   get :grunnbeløp do
-    Grunnbeløp.get(params[:date])
+    value = Grunnbeløp.get(params[:date])
+    status value[:status] if value.key?(:status)
+    return value
   end
 
   add_swagger_documentation  hide_documentation_path: true,
