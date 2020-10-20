@@ -308,7 +308,7 @@
       "dato": "1981.05.01",
       "grunnbeløp": 19100,
       "grunnbeløp_per_måned": 1592,
-      "gjennomsnitt_per_år": 1.097701
+      "omregningsfaktor": 1.097701
     },
     {
       "dato": "1981.01.01",
@@ -327,7 +327,7 @@
       "dato": "1980.01.01",
       "grunnbeløp": 16100,
       "grunnbeløp_per_måned": 1342,
-      "gjennomsnitt_per_år": 1.059211
+      "omregningsfaktor": 1.059211
     },
     {
       "dato": "1979.01.01",
@@ -354,7 +354,7 @@
       "dato": "1977.05.01",
       "grunnbeløp": 13400,
       "grunnbeløp_per_måned": 1117,
-      "gjennomsnitt_per_år": 1.022901
+      "omregningsfaktor": 1.022901
     },
     {
       "dato": "1977.01.01",
@@ -373,7 +373,7 @@
       "dato": "1976.01.01",
       "grunnbeløp": 11800,
       "grunnbeløp_per_måned": 983,
-      "gjennomsnitt_per_år": 1.072727
+      "omregningsfaktor": 1.072727
     },
     {
       "dato": "1975.05.01",
