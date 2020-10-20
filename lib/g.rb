@@ -5,7 +5,7 @@ require 'json'
 
 module Grunnbeløp
   @grunnbeløp_data = JSON.parse(File.read('./grunnbeløp.json'), object_class: OpenStruct)
-  @date_format = '%Y.%m.%d'
+  @date_format = '%Y-%m-%d'
 
   def self.get_by_date(needle)
     datoer = @grunnbeløp_data.grunnbeløp.map { |obj| DateTime.strptime(obj.dato, @date_format) }
