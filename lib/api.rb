@@ -12,9 +12,11 @@ class G < Grape::API
   format :json
   prefix :api
 
-  desc 'returnerer grunnbeløp'
+  desc 'Returnerer dagens grunnbeløp' do
+    detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?date=<ISO 8601>'
+  end
   params do
-    optional :date, type: String
+    optional :dato, type: 'ISO 8601'
   end
   get :grunnbeløp do
     value = Grunnbeløp.get(params[:date])
