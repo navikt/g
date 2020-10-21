@@ -13,23 +13,11 @@ module Grunnbeløp
               .select { |date| date <= needle.to_datetime }
               .min_by { |date| (date.to_time - needle.to_time).abs }
               .strftime(@date_format)
+
     @grunnbeløp_data['grunnbeløp'].select { |obj| obj.dato == found }.first
   end
 
-  def self.parse_needle(needle)
-    return DateTime.now unless needle
-
-    Date.parse(needle)
-  end
-
   def self.get(needle = nil)
-    begin
-      needle = parse_needle(needle)
-    rescue Date::Error
-      return { status: 400, message: 'invalid date' }
-    end
-
-    grunnbeløp = get_by_date(needle)
-    grunnbeløp.to_h
+    get_by_date(needle).to_h
   end
 end

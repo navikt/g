@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'date'
 require 'grape'
 require 'grape-swagger'
 
@@ -16,12 +17,11 @@ class G < Grape::API
     detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?date=<ISO 8601>'
   end
   params do
-    optional :dato, type: String
+    optional :dato, type: Date, coerce_with: DateTime.method(:iso8601)
   end
   get :grunnbeløp do
-    value = Grunnbeløp.get(params[:dato])
-    status value[:status] if value.key?(:status)
-    return value
+    dato = params[:dato] || DateTime.now
+    Grunnbeløp.get(dato)
   end
 
   add_swagger_documentation  hide_documentation_path: true,
