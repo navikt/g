@@ -11,7 +11,7 @@ class G < Grape::API
 
   desc 'Root redirecter til Swagger', hidden: true
   get do
-    redirect 'api/v1/swagger_doc'
+    redirect 'api/v1/swagger_doc', permanent: true
   end
 
   version 'v1', using: :path
