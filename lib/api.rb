@@ -14,7 +14,7 @@ class G < Grape::API
   prefix :api
 
   desc 'Returnerer dagens grunnbeløp' do
-    detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?date=<ISO 8601>'
+    detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?dato=<ISO 8601>'
   end
   params do
     optional :dato, type: Date, coerce_with: DateTime.method(:iso8601)
