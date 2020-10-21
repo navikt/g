@@ -9,6 +9,11 @@ require_relative 'g'
 class G < Grape::API
   include Grunnbeløp
 
+  desc 'Root redirecter til Swagger', hidden: true
+  get do
+    redirect 'api/v1/swagger_doc'
+  end
+
   version 'v1', using: :path
   format :json
   prefix :api
