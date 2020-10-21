@@ -16,10 +16,10 @@ class G < Grape::API
     detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?date=<ISO 8601>'
   end
   params do
-    optional :dato, type: 'ISO 8601'
+    optional :dato, type: String
   end
   get :grunnbeløp do
-    value = Grunnbeløp.get(params[:date])
+    value = Grunnbeløp.get(params[:dato])
     status value[:status] if value.key?(:status)
     return value
   end
