@@ -18,15 +18,32 @@ class G < Grape::API
   format :json
   prefix :api
 
+  helpers do
+    params :grunnbeløp do
+      optional :dato, type: Date, coerce_with: DateTime.method(:iso8601)
+    end
+  end
+
   desc 'Returnerer dagens grunnbeløp' do
     detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?dato=<ISO 8601>'
   end
   params do
-    optional :dato, type: Date, coerce_with: DateTime.method(:iso8601)
+    use :grunnbeløp
   end
   get :grunnbeløp do
     dato = params[:dato] || DateTime.now
     Grunnbeløp.get(dato)
+  end
+
+  desc 'Returnerer dagens grunnbeløp' do
+    detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?dato=<ISO 8601>'
+  end
+  params do
+    use :grunnbeløp
+  end
+  get :grunnbelop do
+    dato = params[:dato] || DateTime.now
+    JSON.parse(Grunnbeløp.get(dato).to_json.tr('ÆØÅæøå', 'AOAaoa'))
   end
 
   add_swagger_documentation  hide_documentation_path: true,
