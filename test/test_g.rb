@@ -2,7 +2,7 @@
 
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/g.rb'
+require './lib/g'
 
 describe Grunnbeløp do
   before do
