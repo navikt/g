@@ -10,5 +10,5 @@ gem 'puma', '~> 5.0', '>= 5.0.2'
 
 group :test, :development do
   gem 'minitest', '~> 5.14', '>= 5.14.2'
-  gem 'rubocop', '~> 0.93.1', require: false
+  gem 'rubocop', '~> 1.0', require: false
 end
