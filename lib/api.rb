@@ -5,8 +5,10 @@ require 'grape'
 require 'grape-swagger'
 
 require_relative 'g'
+require_relative 'apihelper'
 
 class G < Grape::API
+  include APIHelper
 
   desc 'Root redirecter til Swagger', hidden: true
   get do
@@ -42,7 +44,7 @@ class G < Grape::API
   end
   get :grunnbelop do
     dato = params[:dato] || DateTime.now
-    JSON.parse(Grunnbeløp.get(dato).to_json.tr('ÆØÅæøå', 'AOAaoa'))
+    normalize_norwegian_letters(JSON.parse(Grunnbeløp.by_date(dato).to_json))
   end
 
   add_swagger_documentation  hide_documentation_path: true,
