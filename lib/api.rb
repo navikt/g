@@ -7,7 +7,6 @@ require 'grape-swagger'
 require_relative 'g'
 
 class G < Grape::API
-  include Grunnbeløp
 
   desc 'Root redirecter til Swagger', hidden: true
   get do
@@ -32,7 +31,7 @@ class G < Grape::API
   end
   get :grunnbeløp do
     dato = params[:dato] || DateTime.now
-    Grunnbeløp.get(dato)
+    Grunnbeløp.by_date(dato)
   end
 
   desc 'Returnerer dagens grunnbeløp' do
