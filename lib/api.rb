@@ -44,7 +44,7 @@ class G < Grape::API
   end
   get :grunnbeloep do
     dato = params[:dato] || DateTime.now
-    normalize_norwegian_letters(JSON.parse(Grunnbeløp.by_date(dato).to_json))
+    JSON.parse(APIHelper.normalize_norwegian_letters(Grunnbeløp.by_date(dato).to_json))
   end
 
   add_swagger_documentation  hide_documentation_path: true,

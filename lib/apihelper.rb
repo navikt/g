@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module APIHelper
-  def normalize_norwegian_letters(text)
+  def self.normalize_norwegian_letters(text)
     text
       .gsub('Æ', 'Ae')
       .gsub('æ', 'ae')
