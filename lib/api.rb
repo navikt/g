@@ -42,7 +42,7 @@ class G < Grape::API
   params do
     use :grunnbeløp
   end
-  get :grunnbelop do
+  get :grunnbeloep do
     dato = params[:dato] || DateTime.now
     normalize_norwegian_letters(JSON.parse(Grunnbeløp.by_date(dato).to_json))
   end
