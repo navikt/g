@@ -12,5 +12,5 @@ jobs:
           ruby-version: '2.7'
       - run: |
           gem install bundler
-          bundler install --without default 
+          bundler install
       - run: rake test
