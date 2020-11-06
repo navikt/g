@@ -10,4 +10,5 @@ spec:
   port: 9292
   ingresses:
     - https://g.nav.no
-    - https://g.prod-gcp.nais.io
+  tracing:
+    enabled: true
