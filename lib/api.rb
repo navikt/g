@@ -3,12 +3,20 @@
 require 'date'
 require 'grape'
 require 'grape-swagger'
+require 'rack/cors'
 
 require_relative 'g'
 require_relative 'apihelper'
 
 class G < Grape::API
   include APIHelper
+
+  use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', headers: :any, methods: :get
+    end
+  end
 
   desc 'Root redirecter til Swagger', hidden: true
   get do
