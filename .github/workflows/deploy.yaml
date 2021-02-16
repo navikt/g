@@ -31,5 +31,5 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: nais.yaml
+          RESOURCE: nais/nais.yaml,nais/alert.yaml
           VAR: TAG=${{ env.TAG }}
