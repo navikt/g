@@ -6,7 +6,7 @@ metadata:
   labels:
     team: aura
 spec:
-  image: docker.pkg.github.com/navikt/g/g:{{ TAG }}
+  image: ghcr.io/navikt/g/g:{{ TAG }}
   port: 9292
   ingresses:
     - https://g.nav.no
