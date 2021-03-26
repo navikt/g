@@ -6,7 +6,7 @@ metadata:
   labels:
     team: aura
 spec:
-  image: ghcr.io/navikt/g/g:{{ TAG }}
+  image: ghcr.io/navikt/g:{{ TAG }}
   port: 9292
   ingresses:
     - https://g.nav.no
