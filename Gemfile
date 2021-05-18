@@ -6,7 +6,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'grape', '~> 1.5'
 gem 'grape-swagger', '~> 1.3', '>= 1.3.1'
-gem 'puma', '~> 5.0', '>= 5.0.2'
+gem 'puma', '~> 5.3'
 gem 'rack-cors', '~> 1.1'
 
 group :test, :development do
