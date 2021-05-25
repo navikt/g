@@ -11,7 +11,7 @@ describe Grunnbeløp do
 
   describe 'når noen ber om grunnbeløp' do
     it 'skal du får siste grunnbeløpet' do
-      _(Grunnbeløp.by_date(DateTime.now)[:grunnbeløp]).must_equal 101_351
+      _(Grunnbeløp.by_date(DateTime.now)[:grunnbeløp]).must_equal 106_399
     end
   end
 
@@ -30,7 +30,7 @@ describe Grunnbeløp do
     end
 
     it 'fremtidige datoer er også akseptabelt' do
-      _(Grunnbeløp.by_date(DateTime.new(2120, 5, 1))[:grunnbeløp]).must_equal 101_351
+      _(Grunnbeløp.by_date(DateTime.new(2120, 5, 1))[:grunnbeløp]).must_equal 106_399
     end
   end
 end
