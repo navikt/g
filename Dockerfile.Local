@@ -12,5 +12,6 @@ WORKDIR /app/g
 COPY --from=builder /usr/local/cargo/bin/g /usr/local/bin/g
 
 ENV ROCKET_ADDRESS=0.0.0.0
+ENV TZ=Europe/Oslo
 
 CMD [ "g" ]
