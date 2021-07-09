@@ -2,15 +2,16 @@ name: Linting
 on: push
 
 jobs:
-  linting:
-    name: Run Rubocop
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.7'
-      - run: |
-          gem install bundler
-          bundler install --without default 
-      - run: rubocop
+      - name: Setup
+        run: rustup component add rustfmt # clippy
+      # not working due to errors with non-ascii identifiers
+      #- name: Build
+      #  run: cargo clippy -- -D warnings -A=E0658
+      - name: Run tests
+        run: cargo fmt -- --check

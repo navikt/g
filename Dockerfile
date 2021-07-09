@@ -1,13 +1,22 @@
-FROM ruby:2.7
+FROM rust:1.53-slim AS builder
 
-# throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
+WORKDIR /app
 
-WORKDIR /usr/src/app
+RUN USER=root cargo new --bin g
+WORKDIR /app/g
+COPY Cargo.toml Cargo.lock grunnbeløp.json ./
 
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
+RUN cargo build --release
+RUN rm src/*.rs
 
-COPY . .
+RUN rm target/release/deps/g*
 
-CMD ["bundler", "exec", "puma", "config.ru"]
+COPY src ./src
+
+RUN cargo install --path .
+
+FROM scratch
+COPY --from=builder /app/g/bin/g .
+USER 64666
+
+CMD [ "./g" ]
