@@ -73,7 +73,8 @@ pub fn grunnbeløp_for_dato(dato: Option<&str>) -> Option<&Grunnbeløp> {
 
 /// # Grunnbeløp
 ///
-/// Returnerer dagens grunnbeløp
+/// Returnerer grunnbeløpet som er gyldig i dag. Kan eventuelt spesifisere
+/// grunnbeløp for en spesifikk dag med `?dato=YYYY-MM-DD` (se: ISO8601)
 #[openapi(tag = "Grunnbeløp")]
 #[get("/grunnbeløp?<dato>")]
 pub fn grunnbeløp(dato: Option<&str>) -> Result<Json<&Grunnbeløp>, BadRequest<&str>> {
@@ -89,7 +90,8 @@ pub fn grunnbeløp(dato: Option<&str>) -> Result<Json<&Grunnbeløp>, BadRequest<
 
 /// # Grunnbeløp
 ///
-/// Returnerer dagens grunnbeløp
+/// Returnerer grunnbeløpet som er gyldig i dag. Kan eventuelt spesifisere
+/// grunnbeløp for en spesifikk dag med `?dato=YYYY-MM-DD` (se: ISO8601)
 #[openapi(tag = "Grunnbeløp")]
 #[get("/grunnbeloep?<dato>")]
 pub fn grunnbeloep(dato: Option<&str>) -> Result<Json<Grunnbeloep>, BadRequest<&str>> {
