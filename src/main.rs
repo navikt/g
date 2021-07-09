@@ -1,5 +1,10 @@
+use rocket_okapi::swagger_ui::{make_swagger_ui, SwaggerUIConfig};
+
 #[macro_use]
 extern crate rocket;
+
+#[macro_use]
+extern crate rocket_okapi;
 
 #[path = "./grunnbeløp.rs"]
 mod grunnbeløp;
@@ -12,7 +17,14 @@ fn rocket() -> _ {
         .mount("/", routes!(is_alive, is_ready))
         .mount(
             "/api/v1/",
-            routes![grunnbeløp::grunnbeløp, grunnbeløp::grunnbeloep],
+            routes_with_openapi![grunnbeløp::grunnbeløp, grunnbeløp::grunnbeloep],
+        )
+        .mount(
+            "/",
+            make_swagger_ui(&SwaggerUIConfig {
+                url: "/api/v1/openapi.json".to_owned(),
+                ..SwaggerUIConfig::default()
+            }),
         )
 }
 

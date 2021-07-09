@@ -5,6 +5,7 @@ use rocket::response::status::BadRequest;
 use rocket::serde::json;
 use rocket::serde::json::Json;
 use rocket::serde::{Deserialize, Serialize};
+use schemars::JsonSchema;
 
 const GRUNNBELØP_TEXT: &str = include_str!("../grunnbeløp.json");
 
@@ -14,7 +15,8 @@ static GRUNNBELØP: Lazy<Vec<Grunnbeløp>> = Lazy::new(|| {
         .grunnbeløp
 });
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, JsonSchema)]
+#[schemars(example = "example_grunnbeløp")]
 pub struct Grunnbeløp {
     pub dato: NaiveDate,
     pub grunnbeløp: u32,
@@ -26,7 +28,12 @@ pub struct Grunnbeløp {
     pub omregningsfaktor: Option<f64>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+fn example_grunnbeløp() -> &'static Grunnbeløp {
+    &GRUNNBELØP[0]
+}
+
+#[derive(Serialize, Deserialize, Debug, JsonSchema)]
+#[schemars(example = "example_grunnbeløp")]
 #[serde(rename_all = "camelCase")]
 pub struct Grunnbeloep {
     pub dato: NaiveDate,
@@ -64,6 +71,10 @@ pub fn grunnbeløp_for_dato(dato: Option<&str>) -> Option<&Grunnbeløp> {
         .min_by_key(|g| filter_dato - g.dato)
 }
 
+/// # Grunnbeløp
+///
+/// Returnerer dagens grunnbeløp
+#[openapi(tag = "Grunnbeløp")]
 #[get("/grunnbeløp?<dato>")]
 pub fn grunnbeløp(dato: Option<&str>) -> Result<Json<&Grunnbeløp>, BadRequest<&str>> {
     grunnbeløp_for_dato(dato).map_or_else(
@@ -76,6 +87,10 @@ pub fn grunnbeløp(dato: Option<&str>) -> Result<Json<&Grunnbeløp>, BadRequest<
     )
 }
 
+/// # Grunnbeløp
+///
+/// Returnerer dagens grunnbeløp
+#[openapi(tag = "Grunnbeløp")]
 #[get("/grunnbeloep?<dato>")]
 pub fn grunnbeloep(dato: Option<&str>) -> Result<Json<Grunnbeloep>, BadRequest<&str>> {
     grunnbeløp_for_dato(dato).map_or_else(
