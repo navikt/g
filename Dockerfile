@@ -1,22 +1,7 @@
-FROM rust:1.53-slim AS builder
+FROM gcr.io/distroless/cc
 
-WORKDIR /app
+COPY ./target/release/g .
 
-RUN USER=root cargo new --bin g
-WORKDIR /app/g
-COPY Cargo.toml Cargo.lock grunnbeløp.json ./
-
-RUN cargo build --release
-RUN rm src/*.rs
-
-RUN rm target/release/deps/g*
-
-COPY src ./src
-
-RUN cargo install --path .
-
-FROM scratch
-COPY --from=builder /app/g/bin/g .
-USER 64666
-
-CMD [ "./g" ]
+EXPOSE 8000
+ENV RUST_LOG=warn
+CMD ["./g"]
