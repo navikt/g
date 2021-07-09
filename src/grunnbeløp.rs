@@ -1,4 +1,5 @@
 use chrono::{Local, NaiveDate};
+use once_cell::sync::Lazy;
 use rocket::response::status;
 use rocket::response::status::BadRequest;
 use rocket::serde::json;
@@ -7,11 +8,11 @@ use rocket::serde::{Deserialize, Serialize};
 
 const GRUNNBELØP_TEXT: &str = include_str!("../grunnbeløp.json");
 
-lazy_static! {
-    static ref GRUNNBELØP: Vec<Grunnbeløp> = json::from_str::<GrunnbeløpList>(GRUNNBELØP_TEXT)
+static GRUNNBELØP: Lazy<Vec<Grunnbeløp>> = Lazy::new(|| {
+    json::from_str::<GrunnbeløpList>(GRUNNBELØP_TEXT)
         .unwrap()
-        .grunnbeløp;
-}
+        .grunnbeløp
+});
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Grunnbeløp {
