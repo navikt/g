@@ -407,7 +407,6 @@ dependencies = [
  "rocket_prometheus",
  "schemars",
  "serde",
- "serde_json",
 ]
 
 [[package]]

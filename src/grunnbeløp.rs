@@ -11,7 +11,7 @@ const GRUNNBELØP_TEXT: &str = include_str!("../grunnbeløp.json");
 
 static GRUNNBELØP: Lazy<Vec<Grunnbeløp>> = Lazy::new(|| {
     json::from_str::<GrunnbeløpList>(GRUNNBELØP_TEXT)
-        .unwrap()
+        .expect("Unable to parse Grunnbeløp")
         .grunnbeløp
 });
 

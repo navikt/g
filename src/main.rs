@@ -1,14 +1,11 @@
 use rocket_okapi::swagger_ui::{make_swagger_ui, SwaggerUIConfig};
+use rocket_prometheus::PrometheusMetrics;
 
 #[macro_use]
 extern crate rocket;
 
 #[macro_use]
 extern crate rocket_okapi;
-
-#[cfg(target_os = "linux")]
-use prometheus::process_collector::ProcessCollector;
-use rocket_prometheus::PrometheusMetrics;
 
 #[path = "./grunnbeløp.rs"]
 mod grunnbeløp;
@@ -20,6 +17,8 @@ fn rocket() -> _ {
     let prometheus = PrometheusMetrics::new();
     #[cfg(target_os = "linux")]
     {
+        // process-metrics only supported on Linux
+        use prometheus::process_collector::ProcessCollector;
         prometheus
             .registry()
             .register(Box::new(ProcessCollector::for_self()))

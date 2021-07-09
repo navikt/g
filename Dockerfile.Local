@@ -1,0 +1,16 @@
+FROM rust:1.53-slim AS builder
+
+WORKDIR /app/g
+
+COPY Cargo.toml Cargo.lock grunnbeløp.json ./
+COPY src/ ./src
+
+RUN cargo install --path .
+
+FROM debian:buster-slim
+WORKDIR /app/g
+COPY --from=builder /usr/local/cargo/bin/g /usr/local/bin/g
+
+ENV ROCKET_ADDRESS=0.0.0.0
+
+CMD [ "g" ]
