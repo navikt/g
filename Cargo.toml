@@ -13,7 +13,7 @@ rocket = { version="0.5.0-rc.1", features=["json"] }
 rocket_okapi = "0.7.0-alpha-1"
 schemars = { version="0.8", features=["preserve_order", "chrono"] }
 serde = { version="1.0", features=["derive"] }
-rocket_prometheus = { git = "https://github.com/sd2k/rocket_prometheus", rev = "6412b9d9fa9b71998a9d750aeed2302ed258a6f6" }
+rocket_prometheus = { git = "https://github.com/sd2k/rocket_prometheus", rev = "109ce2824e712cbabfab4f730ce50aa701d35eb5" }
 
 [target.'cfg(target_os = "linux")'.dependencies]
 prometheus = { version="0.12", features=["process"] }

@@ -14,7 +14,16 @@ mod tests;
 
 #[launch]
 fn rocket() -> _ {
-    let prometheus = PrometheusMetrics::with_default_registry();
+    let prometheus = PrometheusMetrics::new();
+    #[cfg(target_os = "linux")]
+    {
+        // process-metrics only supported on Linux
+        use prometheus::process_collector::ProcessCollector;
+        prometheus
+            .registry()
+            .register(Box::new(ProcessCollector::for_self()))
+            .unwrap();
+    }
     rocket::build()
         .attach(prometheus.clone())
         .mount("/", routes!(is_alive, is_ready))
