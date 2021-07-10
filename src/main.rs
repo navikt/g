@@ -1,3 +1,4 @@
+use rocket_cors;
 use rocket_okapi::swagger_ui::{make_swagger_ui, SwaggerUIConfig};
 use rocket_prometheus::PrometheusMetrics;
 
@@ -15,6 +16,7 @@ mod tests;
 #[launch]
 fn rocket() -> _ {
     let prometheus = PrometheusMetrics::new();
+    let cors = rocket_cors::CorsOptions::default().to_cors().unwrap();
     #[cfg(target_os = "linux")]
     {
         // process-metrics only supported on Linux
@@ -22,10 +24,11 @@ fn rocket() -> _ {
         prometheus
             .registry()
             .register(Box::new(ProcessCollector::for_self()))
-            .unwrap();
+            .expect("Unable to register process-metrics");
     }
     rocket::build()
         .attach(prometheus.clone())
+        .attach(cors)
         .mount("/", routes!(is_alive, is_ready))
         .mount(
             "/api/v1/",
