@@ -1,4 +1,3 @@
-use rocket_cors;
 use rocket_okapi::swagger_ui::{make_swagger_ui, SwaggerUIConfig};
 use rocket_prometheus::PrometheusMetrics;
 
