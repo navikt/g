@@ -1,13 +1,9 @@
-FROM ruby:2.7
+FROM gcr.io/distroless/cc
 
-# throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
+COPY ./target/release/g .
 
-WORKDIR /usr/src/app
-
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
-
-COPY . .
-
-CMD ["bundler", "exec", "puma", "config.ru"]
+EXPOSE 8000
+ENV ROCKET_ADDRESS=0.0.0.0
+ENV TZ=Europe/Oslo
+ENV RUST_LOG=warn
+CMD ["./g"]
