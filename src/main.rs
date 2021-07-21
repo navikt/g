@@ -14,17 +14,8 @@ mod tests;
 
 #[launch]
 fn rocket() -> _ {
-    let prometheus = PrometheusMetrics::new();
+    let prometheus = PrometheusMetrics::with_default_registry();
     let cors = rocket_cors::CorsOptions::default().to_cors().unwrap();
-    #[cfg(target_os = "linux")]
-    {
-        // process-metrics only supported on Linux
-        use prometheus::process_collector::ProcessCollector;
-        prometheus
-            .registry()
-            .register(Box::new(ProcessCollector::for_self()))
-            .expect("Unable to register process-metrics");
-    }
     rocket::build()
         .attach(prometheus.clone())
         .attach(cors)
