@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: g
+  description: API for å hente grunnbeløp
+  tags:
+    - ruby
+  links:
+    - url: https://g.nav.no
+      title: G
+      icon: dashboard
+spec:
+  type: service
+  lifecycle: production
+  owner: aura
+  providesApis:
+    - g
+    
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: g
+  description: API for å hente grunnbeløp
+spec:
+  type: openapi
+  lifecycle: production
+  owner: aura
+  system: g
+  definition: |
+    $text: https://g.nav.no/api/v1/swagger_doc
