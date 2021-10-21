@@ -5,6 +5,7 @@ metadata:
   description: API for å hente grunnbeløp
   tags:
     - ruby
+    - grunnbeløp
   links:
     - url: https://g.nav.no
       title: G
@@ -22,6 +23,8 @@ kind: API
 metadata:
   name: g
   description: API for å hente grunnbeløp
+  tags:
+  - grunnbeløp
 spec:
   type: openapi
   lifecycle: production
