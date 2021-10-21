@@ -27,5 +27,4 @@ spec:
   lifecycle: production
   owner: aura
   system: g
-  definition: |
-    $text: https://g.nav.no/api/v1/swagger_doc
+  definition: $text: https://g.nav.no/api/v1/swagger_doc
