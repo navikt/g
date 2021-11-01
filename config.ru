@@ -8,7 +8,7 @@ use Rack::Deflater
 use Prometheus::Middleware::Collector
 use Prometheus::Middleware::Exporter
 
-run ->(_) { [200, {'Content-Type' => 'text/html'}, ['OK']] }
+run ->(_) { [200, { 'Content-Type' => 'text/html' }, ['OK']] }
 
 require_relative './lib/api'
 
