@@ -16,4 +16,4 @@ group :test, :development do
   gem 'rubocop', '~> 1.0', require: false
 end
 
-gem "geocoder", "~> 1.7"
+gem 'geocoder', '~> 1.7'
