@@ -10,5 +10,5 @@ spec:
   port: 9292
   ingresses:
     - https://g.nav.no
-  tracing:
+  prometheus:
     enabled: true

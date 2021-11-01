@@ -14,3 +14,5 @@ group :test, :development do
   gem 'rack-test', '~> 1.1'
   gem 'rubocop', '~> 1.0', require: false
 end
+
+gem "prometheus-client", "~> 2.1"
