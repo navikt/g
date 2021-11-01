@@ -13,5 +13,5 @@ spec:
   prometheus:
     enabled: true
   env:
-    name: RACK_ENV
-    value: production
+    - name: RACK_ENV
+      value: production
