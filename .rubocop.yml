@@ -1,3 +1,5 @@
+AllCops:
+  NewCops: enable
 Naming/AsciiIdentifiers:
   Enabled: false
 Style/Documentation:
