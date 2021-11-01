@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'geocoder'
 require 'grape'
 require 'grape-swagger'
 require 'rack/cors'
@@ -31,6 +32,14 @@ class G < Grape::API
     params :grunnbeløp do
       optional :dato, type: Date, coerce_with: DateTime.method(:iso8601)
     end
+
+    def logger
+      G.logger
+    end
+  end
+
+  before do
+    logger.info("Request for #{request.path} from #{request.location.data['ip']}")
   end
 
   desc 'Returnerer dagens grunnbeløp' do

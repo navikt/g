@@ -15,3 +15,5 @@ group :test, :development do
   gem 'rack-test', '~> 1.1'
   gem 'rubocop', '~> 1.0', require: false
 end
+
+gem "geocoder", "~> 1.7"
