@@ -3,5 +3,5 @@
 mkdir /tmp/g
 chmod +t /tmp/g
 
-TMPDIR=/tmp/g/tmp
+export TMPDIR=/tmp/g/tmp
 bundler exec puma config.ru
