@@ -3,6 +3,7 @@
 require 'date'
 require 'geocoder'
 require 'grape'
+require 'grape_logging'
 require 'grape-swagger'
 require 'rack/cors'
 
@@ -11,6 +12,9 @@ require_relative 'apihelper'
 
 class G < Grape::API
   include APIHelper
+
+  logger.formatter = GrapeLogging::Formatters::Logstash.new
+  insert_before Grape::Middleware::Error, GrapeLogging::Middleware::RequestLogger, { logger: logger }
 
   use Rack::Cors do
     allow do
@@ -39,7 +43,9 @@ class G < Grape::API
   end
 
   before do
-    logger.info("Request for #{request.path} from #{request.location.data['ip']}")
+    if request.path.start_with?('/api/v1/grunn') && request&.location&.data
+      logger.info("Request for #{request.path} from #{request.location.data['ip']}")
+    end
   end
 
   desc 'Returnerer dagens grunnbeløp' do

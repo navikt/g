@@ -17,3 +17,5 @@ group :test, :development do
 end
 
 gem 'geocoder', '~> 1.7'
+
+gem 'grape_logging', '~> 1.8'
