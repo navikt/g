@@ -8,6 +8,6 @@ WORKDIR /usr/src/app
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
-COPY . .
+COPY --chown=1069:1069 . .
 
-CMD ["bundler", "exec", "puma", "config.ru"]
+CMD ["./entrypoint.sh"]
