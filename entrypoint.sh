@@ -1,7 +1,7 @@
 #!/bin/sh
 
-mkdir /tmp/g
+mkdir -p /tmp/g
 chmod +t /tmp/g
 
-export TMPDIR=/tmp/g/tmp
+export TMPDIR=/tmp/g
 bundler exec puma config.ru
