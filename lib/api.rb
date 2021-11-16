@@ -23,9 +23,20 @@ class G < Grape::API
     end
   end
 
-  desc 'Root redirecter til Swagger', hidden: true
+  content_type :txt, 'text/plain; charset=utf-8'
+  content_type :json, 'application/json'
+
+  desc 'Litt om API-et', hidden: true
   get do
-    redirect 'api/v1/swagger_doc', permanent: true
+    g = Grunnbeløp.today
+    "G er en tjeneste som gir deg dagens grunnbeløp.
+
+Grunnbeløp (#{g[:dato]}): #{g[:grunnbeløp]}
+Swagger: https://g.nav.no/api/v1/swagger_doc
+På NAV.no: https://www.nav.no/no/nav-og-samfunn/kontakt-nav/utbetalinger/grunnbelopet-i-folketrygden
+Github: https://github.com/navikt/g
+Felles datakatalog: https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-05f2e6939cc1
+"
   end
 
   version 'v1', using: :path

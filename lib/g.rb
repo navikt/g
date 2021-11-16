@@ -16,4 +16,8 @@ module Grunnbeløp
 
     @grunnbeløp_data['grunnbeløp'].select { |obj| obj.dato == found }.first.to_h
   end
+
+  def self.today
+    by_date(Date.today)
+  end
 end
