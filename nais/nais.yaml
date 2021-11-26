@@ -15,3 +15,10 @@ spec:
   env:
     - name: RACK_ENV
       value: production
+  resources:
+    limits:
+      cpu: 300m
+      memory: 400Mi
+    requests:
+      cpu: 50m
+      memory: 200Mi
