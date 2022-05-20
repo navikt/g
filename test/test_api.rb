@@ -17,8 +17,8 @@ describe G do
     it 'returner grunnbeloep json' do
       get '/api/v1/grunnbeloep'
       assert last_response.ok?
-      assert_equal({ 'dato' => '2021-05-01', 'grunnbeloep' => 106_399, 'grunnbeloepPerMaaned' => 8_867,
-                     'gjennomsnittPerAar' => 104_716, 'omregningsfaktor' => 1.049807 },
+      assert_equal({ 'dato' => '2022-05-01', 'grunnbeloep' => 111_477, 'grunnbeloepPerMaaned' => 9_290,
+                     'gjennomsnittPerAar' => 109_784, 'omregningsfaktor' => 1.047726 },
                    JSON.parse(last_response.body))
     end
 

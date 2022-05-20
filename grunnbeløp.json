@@ -1,6 +1,13 @@
 {
   "grunnbeløp": [
     {
+      "dato": "2022-05-01",
+      "grunnbeløp": 111477,
+      "grunnbeløpPerMåned": 9290,
+      "gjennomsnittPerÅr": 109784,
+      "omregningsfaktor": 1.047726
+    },
+    {
       "dato": "2021-05-01",
       "grunnbeløp": 106399,
       "grunnbeløpPerMåned": 8867,
