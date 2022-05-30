@@ -81,6 +81,19 @@ Felles datakatalog: https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-0
     JSON.parse(APIHelper.normalize_norwegian_letters(Grunnbeløp.by_date(dato).to_json))
   end
 
+  desc 'Historikk over grunnbeløp' do
+    detail 'Man kan få historikk fra en spesifikk dato ved å spesifisere ?fra=<ISO 8601>'
+  end
+  params do
+    optional :fra, type: Date, coerce_with: DateTime.method(:iso8601)
+  end
+  get :historikk do
+    fra = params[:fra]
+    return Grunnbeløp.from_date(fra) if fra
+
+    Grunnbeløp.all_history
+  end
+
   add_swagger_documentation  hide_documentation_path: true,
                              doc_version: '1.0.0',
                              info: {

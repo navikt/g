@@ -36,5 +36,17 @@ describe G do
       assert_equal 400, last_response.status
       assert_equal 'dato is invalid', JSON.parse(last_response.body)['error']
     end
+
+    it 'returnerer all historikk for grunnbeløp' do
+      get '/api/v1/historikk'
+      assert last_response.ok?
+      assert_equal 69, JSON.parse(last_response.body).size
+    end
+
+    it 'returnerer historikk fra og med dato' do
+      get '/api/v1/historikk?fra=2019-04-30'
+      assert last_response.ok?
+      assert_equal 5, JSON.parse(last_response.body).size
+    end
   end
 end

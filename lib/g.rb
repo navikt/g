@@ -20,4 +20,14 @@ module Grunnbeløp
   def self.today
     by_date(Date.today)
   end
+
+  def self.from_date(needle)
+    found = by_date(needle)
+
+    @grunnbeløp_data['grunnbeløp'].select { |obj| obj.dato >= found[:dato] }.map(&:to_h)
+  end
+
+  def self.all_history
+    @grunnbeløp_data['grunnbeløp'].map(&:to_h)
+  end
 end
