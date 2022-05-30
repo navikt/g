@@ -19,7 +19,7 @@ describe G do
       assert last_response.ok?
       assert_equal({ 'dato' => '2022-05-01', 'grunnbeloep' => 111_477, 'grunnbeloepPerMaaned' => 9_290,
                      'gjennomsnittPerAar' => 109_784, 'omregningsfaktor' => 1.047726,
-                     'virkningstidspunktSomMinsteinntekt' => '2022-05-23' },
+                     'virkningstidspunktForMinsteinntekt' => '2022-05-23' },
                    JSON.parse(last_response.body))
     end
 
