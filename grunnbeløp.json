@@ -5,70 +5,80 @@
       "grunnbeløp": 111477,
       "grunnbeløpPerMåned": 9290,
       "gjennomsnittPerÅr": 109784,
-      "omregningsfaktor": 1.047726
+      "omregningsfaktor": 1.047726,
+      "virkningstidspunktSomMinsteinntekt": "2022-05-23"
     },
     {
       "dato": "2021-05-01",
       "grunnbeløp": 106399,
       "grunnbeløpPerMåned": 8867,
       "gjennomsnittPerÅr": 104716,
-      "omregningsfaktor": 1.049807
+      "omregningsfaktor": 1.049807,
+      "virkningstidspunktSomMinsteinntekt": "2021-05-24"
     },
     {
       "dato": "2020-05-01",
       "grunnbeløp": 101351,
       "grunnbeløpPerMåned": 8446,
       "gjennomsnittPerÅr": 100853,
-      "omregningsfaktor": 1.014951
+      "omregningsfaktor": 1.014951,
+      "virkningstidspunktSomMinsteinntekt": "2020-09-21"
     },
     {
       "dato": "2019-05-01",
       "grunnbeløp": 99858,
       "grunnbeløpPerMåned": 8322,
       "gjennomsnittPerÅr": 98866,
-      "omregningsfaktor": 1.030707
+      "omregningsfaktor": 1.030707,
+      "virkningstidspunktSomMinsteinntekt": "2019-05-27"
     },
     {
       "dato": "2018-05-01",
       "grunnbeløp": 96883,
       "grunnbeløpPerMåned": 8074,
       "gjennomsnittPerÅr": 95800,
-      "omregningsfaktor": 1.034699
+      "omregningsfaktor": 1.034699,
+      "virkningstidspunktSomMinsteinntekt": "2018-06-04"
     },
     {
       "dato": "2017-05-01",
       "grunnbeløp": 93634,
       "grunnbeløpPerMåned": 7803,
       "gjennomsnittPerÅr": 93281,
-      "omregningsfaktor": 1.011428
+      "omregningsfaktor": 1.011428,
+      "virkningstidspunktSomMinsteinntekt": "2017-05-29"
     },
     {
       "dato": "2016-05-01",
       "grunnbeløp": 92576,
       "grunnbeløpPerMåned": 7715,
       "gjennomsnittPerÅr": 91740,
-      "omregningsfaktor": 1.027846
+      "omregningsfaktor": 1.027846,
+      "virkningstidspunktSomMinsteinntekt": "2016-05-30"
     },
     {
       "dato": "2015-05-01",
       "grunnbeløp": 90068,
       "grunnbeløpPerMåned": 7506,
       "gjennomsnittPerÅr": 89502,
-      "omregningsfaktor": 1.019214
+      "omregningsfaktor": 1.019214,
+      "virkningstidspunktSomMinsteinntekt": "2015-06-01"
     },
     {
       "dato": "2014-05-01",
       "grunnbeløp": 88370,
       "grunnbeløpPerMåned": 7364,
       "gjennomsnittPerÅr": 87328,
-      "omregningsfaktor": 1.036659
+      "omregningsfaktor": 1.036659,
+      "virkningstidspunktSomMinsteinntekt": "2014-06-30"
     },
     {
       "dato": "2013-05-01",
       "grunnbeløp": 85245,
       "grunnbeløpPerMåned": 7104,
       "gjennomsnittPerÅr": 84204,
-      "omregningsfaktor": 1.038029
+      "omregningsfaktor": 1.038029,
+      "virkningstidspunktSomMinsteinntekt": "2013-06-24"
     },
     {
       "dato": "2012-05-01",
