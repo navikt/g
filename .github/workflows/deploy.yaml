@@ -9,22 +9,26 @@ jobs:
     name: Build and push image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: echo "IMAGE=ghcr.io/${GITHUB_REPOSITORY}:$(git log -1 --pretty=%ad --date=format:%Y-%m-%d)-$(git log --pretty=format:'%h' -n 1)" >> $GITHUB_ENV
       - run: docker build -t $IMAGE .
-      - uses: docker/login-action@v1
+      - uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: docker push $IMAGE
+      - uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ${{ env.IMAGE }}
+          context: .
 
   nais-yaml:
     name: Release to nais-yaml
     runs-on: ubuntu-latest
     needs: build-push
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: echo "TAG=$(git log -1 --pretty=%ad --date=format:%Y-%m-%d)-$(git log --pretty=format:'%h' -n 1)" >> $GITHUB_ENV
       - name: deploy to prod
         uses: nais/deploy/actions/deploy@v1
