@@ -11,4 +11,4 @@ jobs:
         with:
           ruby-version: '2.7'
           bundler-cache: true
-      - run: rubocop
+      - run: bundle exec rubocop

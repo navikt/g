@@ -11,4 +11,4 @@ jobs:
         with:
           ruby-version: '2.7'
           bundler-cache: true
-      - run: rake test
+      - run: bundle exec rake test
