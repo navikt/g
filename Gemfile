@@ -6,8 +6,8 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'geocoder', '~> 1.7'
 gem 'grape', '~> 1.5'
-gem 'grape-swagger', '~> 1.3', '>= 1.3.1'
 gem 'grape_logging', '~> 1.8'
+gem 'grape-swagger', '~> 1.3', '>= 1.3.1'
 gem 'prometheus-client', '~> 2.1'
 gem 'puma', '~> 5.6'
 gem 'rack-cors', '~> 1.1'
