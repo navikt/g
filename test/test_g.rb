@@ -11,26 +11,26 @@ describe Grunnbeløp do
 
   describe 'når noen ber om grunnbeløp' do
     it 'skal du får siste grunnbeløpet' do
-      _(Grunnbeløp.by_date(DateTime.now)[:grunnbeløp]).must_equal 111_477
+      _(Grunnbeløp.by_date(DateTime.now)['grunnbeløp']).must_equal 111_477
     end
   end
 
   describe 'når noen ber om grunnbeløp for en spesifikk dato' do
     it 'skal du få riktig grunnbeløp' do
-      _(Grunnbeløp.by_date(DateTime.new(2011, 5, 1))[:grunnbeløp]).must_equal 79_216
+      _(Grunnbeløp.by_date(DateTime.new(2011, 5, 1))['grunnbeløp']).must_equal 79_216
     end
 
     it 'noen år har flere grunnbeløp' do
-      _(Grunnbeløp.by_date(DateTime.new(1977, 12, 31))[:grunnbeløp]).must_equal 14_400
-      _(Grunnbeløp.by_date(DateTime.new(1977, 12, 1))[:grunnbeløp]).must_equal 14_400
-      _(Grunnbeløp.by_date(DateTime.new(1977, 11, 30))[:grunnbeløp]).must_equal 13_400
-      _(Grunnbeløp.by_date(DateTime.new(1977, 5, 1))[:grunnbeløp]).must_equal 13_400
-      _(Grunnbeløp.by_date(DateTime.new(1977, 4, 30))[:grunnbeløp]).must_equal 13_100
-      _(Grunnbeløp.by_date(DateTime.new(1977, 1, 1))[:grunnbeløp]).must_equal 13_100
+      _(Grunnbeløp.by_date(DateTime.new(1977, 12, 31))['grunnbeløp']).must_equal 14_400
+      _(Grunnbeløp.by_date(DateTime.new(1977, 12, 1))['grunnbeløp']).must_equal 14_400
+      _(Grunnbeløp.by_date(DateTime.new(1977, 11, 30))['grunnbeløp']).must_equal 13_400
+      _(Grunnbeløp.by_date(DateTime.new(1977, 5, 1))['grunnbeløp']).must_equal 13_400
+      _(Grunnbeløp.by_date(DateTime.new(1977, 4, 30))['grunnbeløp']).must_equal 13_100
+      _(Grunnbeløp.by_date(DateTime.new(1977, 1, 1))['grunnbeløp']).must_equal 13_100
     end
 
     it 'fremtidige datoer er også akseptabelt' do
-      _(Grunnbeløp.by_date(DateTime.new(2120, 5, 1))[:grunnbeløp]).must_equal 111_477
+      _(Grunnbeløp.by_date(DateTime.new(2120, 5, 1))['grunnbeløp']).must_equal 111_477
     end
   end
 end
