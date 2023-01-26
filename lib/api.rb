@@ -31,7 +31,7 @@ class G < Grape::API
     g = Grunnbeløp.today
     "G er en tjeneste som gir deg dagens grunnbeløp.
 
-Grunnbeløp (#{g[:dato]}): #{g[:grunnbeløp]}
+Grunnbeløp (#{g['dato']}): #{g['grunnbeløp']}
 Swagger: https://g.nav.no/api/v1/swagger_doc
 På NAV.no: https://www.nav.no/no/nav-og-samfunn/kontakt-nav/utbetalinger/grunnbelopet-i-folketrygden
 Github: https://github.com/navikt/g
