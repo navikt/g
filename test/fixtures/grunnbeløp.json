@@ -1,0 +1,53 @@
+{
+  "grunnbeløp": [
+    {
+      "dato": "2022-05-01",
+      "grunnbeløp": 111477,
+      "grunnbeløpPerMåned": 9290,
+      "gjennomsnittPerÅr": 109784,
+      "omregningsfaktor": 1.047726,
+      "virkningstidspunktForMinsteinntekt": "2022-05-23"
+    },
+    {
+      "dato": "2019-05-01",
+      "grunnbeløp": 99858,
+      "grunnbeløpPerMåned": 8322,
+      "gjennomsnittPerÅr": 98866,
+      "omregningsfaktor": 1.030707,
+      "virkningstidspunktForMinsteinntekt": "2019-05-27"
+    },
+    {
+      "dato": "2011-05-01",
+      "grunnbeløp": 79216,
+      "grunnbeløpPerMåned": 6601,
+      "gjennomsnittPerÅr": 78024,
+      "omregningsfaktor": 1.047263
+    },
+    {
+      "dato": "1996-05-01",
+      "grunnbeløp": 41000,
+      "grunnbeløpPerMåned": 3417,
+      "gjennomsnittPerÅr": 40410,
+      "omregningsfaktor": 1.045119
+    },
+    {
+      "dato": "1977-12-01",
+      "grunnbeløp": 14400,
+      "grunnbeløpPerMåned": 1200,
+      "gjennomsnittPerÅr": 13383,
+      "omregningsfaktor": 1.074627
+    },
+    {
+      "dato": "1977-05-01",
+      "grunnbeløp": 13400,
+      "grunnbeløpPerMåned": 1117,
+      "omregningsfaktor": 1.022901
+    },
+    {
+      "dato": "1977-01-01",
+      "grunnbeløp": 13100,
+      "grunnbeløpPerMåned": 1092,
+      "omregningsfaktor": 1.082645
+    }
+  ]
+}
