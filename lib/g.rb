@@ -5,7 +5,7 @@ require 'json'
 
 module Grunnbeløp
   p ENV
-  @grunnbeløp_data = JSON.parse(File.read(ENV.fetch['GRUNNBELØP']), object_class: Hash)
+  @grunnbeløp_data = JSON.parse(File.read(ENV.fetch('GRUNNBELØP')), object_class: Hash)
   @date_format = '%Y-%m-%d'
 
   def self.by_date(needle)
