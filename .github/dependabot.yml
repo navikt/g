@@ -9,11 +9,26 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      gems:
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      gh:
+        patterns:
+          - "*"
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      docker:
+        patterns:
+          - "*"
