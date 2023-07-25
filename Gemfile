@@ -10,7 +10,7 @@ gem 'grape_logging', '~> 1.8'
 gem 'grape-swagger', '~> 1.3', '>= 1.3.1'
 gem 'prometheus-client', '~> 4.1'
 gem 'puma', '~> 6.3'
-gem 'rack-cors', '~> 1.1'
+gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.0'
 
 group :test, :development do
