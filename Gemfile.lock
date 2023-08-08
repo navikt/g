@@ -50,7 +50,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
-    prometheus-client (4.2.0)
+    prometheus-client (4.2.1)
     puma (6.3.0)
       nio4r (~> 2.0)
     racc (1.7.1)
