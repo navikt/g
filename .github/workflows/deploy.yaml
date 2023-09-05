@@ -4,6 +4,9 @@ on:
     branches:
       - main
 
+permissions:
+  packages: write
+
 jobs:
   build-push:
     name: Build and push image
