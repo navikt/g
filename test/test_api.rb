@@ -31,10 +31,12 @@ describe G do
                    JSON.parse(last_response.body))
     end
 
-    it 'returnere feilkode ved ugyldige datoer' do
+    it 'vi støtter norsk talemål å skrive dato på' do
       get '/api/v1/grunnbeloep?dato=24-08-2010'
-      assert_equal 400, last_response.status
-      assert_equal 'dato is invalid', JSON.parse(last_response.body)['error']
+      assert last_response.ok?
+      assert_equal({ 'dato' => '1996-05-01', 'grunnbeloep' => 41_000, 'grunnbeloepPerMaaned' => 3_417,
+                     'gjennomsnittPerAar' => 40_410, 'omregningsfaktor' => 1.045119 },
+                   JSON.parse(last_response.body))
     end
 
     it 'returnerer all historikk for grunnbeløp' do

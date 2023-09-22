@@ -45,7 +45,7 @@ Felles datakatalog: https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-0
 
   helpers do
     params :grunnbeløp do
-      optional :dato, type: Date, coerce_with: DateTime.method(:iso8601)
+      optional :dato, type: Date
     end
 
     def logger
@@ -85,7 +85,7 @@ Felles datakatalog: https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-0
     detail 'Man kan få historikk fra en spesifikk dato ved å spesifisere ?fra=<ISO 8601>'
   end
   params do
-    optional :fra, type: Date, coerce_with: DateTime.method(:iso8601)
+    optional :fra, type: Date
   end
   get :historikk do
     fra = params[:fra]
