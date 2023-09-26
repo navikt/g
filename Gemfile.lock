@@ -52,7 +52,7 @@ GEM
       ast (~> 2.4.1)
       racc
     prometheus-client (4.2.1)
-    puma (6.3.1)
+    puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (3.0.8)
@@ -97,7 +97,7 @@ DEPENDENCIES
   grape_logging (~> 1.8)
   minitest (~> 5.20)
   prometheus-client (~> 4.2)
-  puma (~> 6.3)
+  puma (~> 6.4)
   rack-cors (~> 2.0)
   rack-test (~> 2.1)
   rake (~> 13.0)

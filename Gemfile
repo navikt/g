@@ -9,7 +9,7 @@ gem 'grape', '~> 1.8'
 gem 'grape_logging', '~> 1.8'
 gem 'grape-swagger', '~> 1.6'
 gem 'prometheus-client', '~> 4.2'
-gem 'puma', '~> 6.3'
+gem 'puma', '~> 6.4'
 gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.0'
 
