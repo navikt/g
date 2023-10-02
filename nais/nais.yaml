@@ -2,9 +2,9 @@ apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   name: g
-  namespace: aura
+  namespace: the-g-team
   labels:
-    team: aura
+    team: the-g-team
 spec:
   image: {{ image }}
   port: 9292
