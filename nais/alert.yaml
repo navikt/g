@@ -2,9 +2,9 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   name: g
-  namespace: aura
+  namespace: the-g-team
   labels:
-    team: aura
+    team: the-g-team
 spec:
   groups:
     - name: G
