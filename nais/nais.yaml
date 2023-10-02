@@ -6,7 +6,7 @@ metadata:
   labels:
     team: aura
 spec:
-  image: ghcr.io/navikt/g:{{ TAG }}
+  image: {{ image }}
   port: 9292
   ingresses:
     - https://g.nav.no
@@ -17,8 +17,7 @@ spec:
       value: production
   resources:
     limits:
-      cpu: 300m
       memory: 400Mi
     requests:
       cpu: 50m
-      memory: 200Mi
+      memory: 150Mi
