@@ -16,5 +16,5 @@ gem 'rake', '~> 13.1'
 group :test, :development do
   gem 'minitest', '~> 5.20'
   gem 'rack-test', '~> 2.1'
-  gem 'rubocop', '~> 1.57', require: false
+  gem 'rubocop', '~> 1.58', require: false
 end
