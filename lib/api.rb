@@ -5,12 +5,13 @@ require 'geocoder'
 require 'grape'
 require 'grape_logging'
 require 'grape-swagger'
+require 'grape-swagger-entity'
 require 'rack/cors'
 
 require_relative 'g'
 require_relative 'apihelper'
 
-class G < Grape::API
+class GAPI < Grape::API
   include APIHelper
 
   logger.formatter = GrapeLogging::Formatters::Logstash.new
@@ -28,7 +29,7 @@ class G < Grape::API
 
   desc 'Litt om API-et', hidden: true
   get do
-    g = Grunnbeløp.today
+    g = G.today
     "G er en tjeneste som gir deg dagens grunnbeløp.
 
 Grunnbeløp (#{g['dato']}): #{g['grunnbeløp']}
@@ -49,7 +50,7 @@ Felles datakatalog: https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-0
     end
 
     def logger
-      G.logger
+      GAPI.logger
     end
   end
 
@@ -61,37 +62,41 @@ Felles datakatalog: https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-0
 
   desc 'Returnerer dagens grunnbeløp' do
     detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?dato=<ISO 8601>'
+    success model: Grunnbeløp
   end
   params do
     use :grunnbeløp
   end
   get :grunnbeløp do
     dato = params[:dato] || DateTime.now
-    Grunnbeløp.by_date(dato)
+    G.by_date(dato)
   end
 
-  desc 'Returnerer dagens grunnbeløp' do
-    detail 'Man kan også søke opp andre grunnbeløp ved å spesifisere ?dato=<ISO 8601>'
+  desc 'Returnerer dagens grunnbeloep' do
+    detail 'Man kan ogsaa soeke opp andre grunnbeloep ved å spesifisere ?dato=<ISO 8601>'
+    success model: Grunnbeloep
   end
   params do
     use :grunnbeløp
   end
   get :grunnbeloep do
     dato = params[:dato] || DateTime.now
-    JSON.parse(APIHelper.normalize_norwegian_letters(Grunnbeløp.by_date(dato).to_json))
+    JSON.parse(APIHelper.normalize_norwegian_letters(G.by_date(dato).to_json))
   end
 
   desc 'Historikk over grunnbeløp' do
     detail 'Man kan få historikk fra en spesifikk dato ved å spesifisere ?fra=<ISO 8601>'
+    success model: Grunnbeløp
+    is_array true
   end
   params do
     optional :fra, type: Date
   end
   get :historikk do
     fra = params[:fra]
-    return Grunnbeløp.from_date(fra) if fra
+    return G.from_date(fra) if fra
 
-    Grunnbeløp.all_history
+    G.all_history
   end
 
   add_swagger_documentation  hide_documentation_path: true,
@@ -99,5 +104,6 @@ Felles datakatalog: https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-0
                              info: {
                                title: 'Grunnbeløp',
                                description: 'Grunnbeløp API'
-                             }
+                             },
+                             produces: ['application/json']
 end
