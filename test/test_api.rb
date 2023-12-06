@@ -6,11 +6,11 @@ require 'minitest/pride'
 require 'rack/test'
 require './lib/api'
 
-describe G do
+describe GAPI do
   include Rack::Test::Methods
 
   def app
-    G
+    GAPI
   end
 
   describe 'test av V1' do

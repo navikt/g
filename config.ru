@@ -13,5 +13,5 @@ run ->(_) { [200, { 'Content-Type' => 'text/html' }, ['OK']] }
 require_relative 'lib/prometheus'
 require_relative 'lib/api'
 
-G.compile!
-run G
+GAPI.compile!
+run GAPI
