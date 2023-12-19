@@ -2,6 +2,8 @@ FROM ruby:3-slim
 
 ENV "GRUNNBELOP" "./grunnbeløp.json"
 
+Run gem install bundler
+
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 
