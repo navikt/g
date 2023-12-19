@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-deploy:
     name: Build and push Docker container
     runs-on: ubuntu-latest
     permissions:
@@ -22,16 +22,9 @@ jobs:
         team: the-g-team
         identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
         project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable
-
-  deploy:
-    name: Deploy to NAIS
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
     - uses: actions/checkout@v4
-    - uses: nais/deploy/actions/deploy@v1
+    - uses: nais/deploy/actions/deploy@v2
       env:
-        APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
         CLUSTER: prod-gcp
         RESOURCE: nais/nais.yaml,nais/alert.yaml
         VAR: image=${{ needs.build.outputs.image }}
