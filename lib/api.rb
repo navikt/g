@@ -38,7 +38,7 @@ class GAPI < Grape::API
     <meta charset="utf-8">
     <title>API for grunnbeløp</title>
   </head>
-  <body>
+  <body role="main">
     <h1>G er en API-tjeneste som gir deg dagens grunnbeløp</h1>
     <p>Grunnbeløpet (G) per #{g['dato']} er #{g['grunnbeløp']} kroner.</p>
     <p>API-et er dokumentert med Swagger, og du kan se dokumentasjonen på
