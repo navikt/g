@@ -15,7 +15,7 @@ gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.1'
 
 group :test, :development do
-  gem 'minitest', '~> 5.21'
+  gem 'minitest', '~> 5.22'
   gem 'rack-test', '~> 2.1'
   gem 'rubocop', '~> 1.60', require: false
 end
