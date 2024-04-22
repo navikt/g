@@ -12,10 +12,10 @@ gem 'grape-swagger-entity', '~> 0.5.3'
 gem 'prometheus-client', '~> 4.2'
 gem 'puma', '~> 6.4'
 gem 'rack-cors', '~> 2.0'
-gem 'rake', '~> 13.1'
+gem 'rake', '~> 13.2'
 
 group :test, :development do
   gem 'minitest', '~> 5.22'
   gem 'rack-test', '~> 2.1'
-  gem 'rubocop', '~> 1.62', require: false
+  gem 'rubocop', '~> 1.63', require: false
 end
