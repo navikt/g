@@ -44,7 +44,7 @@ class GAPI < Grape::API
     <p>API-et er dokumentert med Swagger, og du kan se dokumentasjonen på
     <a href="https://g.nav.no/api/v1/swagger_doc">https://g.nav.no/api/v1/swagger_doc</a>.</p>
     <p>Du finner også grunnbeløpet på
-    <a href="https://www.nav.no/no/nav-og-samfunn/kontakt-nav/utbetalinger/grunnbelopet-i-folketrygden">https://www.nav.no/no/nav-og-samfunn/kontakt-nav/utbetalinger/grunnbelopet-i-folketrygden</a>.</p>
+    <a href="https://www.nav.no/grunnbelopet">https://www.nav.no/grunnbelopet</a>.</p>
     <p>API-et er open source, og du finner kildekoden på <a href="https://github.com/navikt/g">https://github.com/navikt/g</a>.</p>
     <p>API-et er registrert i <a href="https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-05f2e6939cc1">
     Felles datakatalog</a>.</p>
