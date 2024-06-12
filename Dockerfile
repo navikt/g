@@ -1,4 +1,4 @@
-FROM ruby:3.3.2-slim
+FROM ruby:3.3.2
 
 ENV "GRUNNBELOP" "./grunnbeløp.json"
 
