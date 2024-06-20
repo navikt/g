@@ -21,3 +21,7 @@ spec:
     requests:
       cpu: 50m
       memory: 150Mi
+  liveness:
+    path: /isAlive
+  readiness:
+    path: /isReady
