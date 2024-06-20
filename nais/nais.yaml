@@ -22,6 +22,6 @@ spec:
       cpu: 50m
       memory: 150Mi
   liveness:
-    path: /isAlive
+    path: /
   readiness:
-    path: /isReady
+    path: /
