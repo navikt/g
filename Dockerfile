@@ -1,7 +1,5 @@
 FROM ruby:3 AS builder
 
-ENV "GRUNNBELOP" "./g.json"
-
 Run gem install bundler
 
 # throw errors if Gemfile has been modified since Gemfile.lock
@@ -14,6 +12,8 @@ RUN bundle install
 
 
 FROM ruby:3-slim
+
+ENV "GRUNNBELOP" "./g.json"
 
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 
