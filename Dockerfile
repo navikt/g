@@ -1,9 +1,6 @@
-FROM ruby:3
+FROM ruby:3 AS builder
 
-RUN apt-get update && \
-    apt-get clean
-
-ENV "GRUNNBELOP" "./grunnbeløp.json"
+ENV "GRUNNBELOP" "./g.json"
 
 Run gem install bundler
 
@@ -15,6 +12,14 @@ WORKDIR /usr/src/app
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
-COPY --chown=1069:1069 . .
+
+FROM ruby:3-slim
+
+COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
+
+COPY --chown=1069:1069 lib lib
+COPY --chown=1069:1069 config.ru .
+COPY --chown=1069:1069 g.json .
+COPY --chown=1069:1069 entrypoint.sh .
 
 CMD ["./entrypoint.sh"]
