@@ -1,4 +1,7 @@
-FROM ruby:3.3.3
+FROM ruby:3
+
+RUN apt-get update && \
+    apt-get clean
 
 ENV "GRUNNBELOP" "./grunnbeløp.json"
 
