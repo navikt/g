@@ -22,6 +22,6 @@ spec:
       cpu: 50m
       memory: 150Mi
   liveness:
-    path: /
+    path: /api/v1/grunnbeloep
   readiness:
-    path: /
+    path: /api/v1/grunnbeloep
