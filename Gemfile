@@ -14,6 +14,8 @@ gem 'puma', '~> 6.4'
 gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.2'
 
+gem "cgi", ">= 0.3.1" # CVE-2021-41816
+
 group :test, :development do
   gem 'minitest', '~> 5.23'
   gem 'rack-test', '~> 2.1'
