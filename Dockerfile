@@ -13,13 +13,13 @@ RUN bundle install
 
 FROM ruby:3-slim
 
-ENV "GRUNNBELOP" "./g.json"
+ENV "GRUNNBELOP" "./grunnbeløp.json"
 
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 
 COPY --chown=1069:1069 lib lib
 COPY --chown=1069:1069 config.ru .
-COPY --chown=1069:1069 g.json .
+COPY --chown=1069:1069 grunnbeløp.json .
 COPY --chown=1069:1069 entrypoint.sh .
 
 CMD ["./entrypoint.sh"]
