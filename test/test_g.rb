@@ -5,10 +5,6 @@ require 'minitest/pride'
 require './lib/g'
 
 describe G do
-  before do
-    # TODO: Mock-e ut datagrunnlaget
-  end
-
   describe 'når noen ber om grunnbeløp' do
     it 'skal du får siste grunnbeløpet' do
       _(G.by_date(DateTime.now)['grunnbeløp']).must_equal 111_477
