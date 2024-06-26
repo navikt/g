@@ -26,16 +26,16 @@ class Grunnbeloep < Grape::Entity
 end
 
 module G
-  @grunnbeløp_data = JSON.parse(File.read(ENV.fetch('GRUNNBELOP', './grunnbeløp.json')), object_class: Hash)
+  @data = JSON.parse(File.read(ENV.fetch('GRUNNBELOP', './grunnbeløp.json')), object_class: Hash)
   @date_format = '%Y-%m-%d'
 
   def self.by_date(needle)
-    datoer = @grunnbeløp_data['grunnbeløp'].map { |obj| DateTime.strptime(obj['dato'], @date_format) }
+    datoer = @data.map { |obj| DateTime.strptime(obj['dato'], @date_format) }
     found = datoer
               .select { |date| date <= needle.to_datetime }
               .min_by { |date| (date.to_time - needle.to_time).abs }
               .strftime(@date_format)
-    @grunnbeløp_data['grunnbeløp'].select { |obj| obj['dato'] == found }.first
+    @data.select { |obj| obj['dato'] == found }.first
   end
 
   def self.today
@@ -45,10 +45,10 @@ module G
   def self.from_date(needle)
     found = by_date(needle)
 
-    @grunnbeløp_data['grunnbeløp'].select { |obj| obj['dato'] >= found['dato'] }
+    @data.select { |obj| obj['dato'] >= found['dato'] }
   end
 
   def self.all_history
-    @grunnbeløp_data['grunnbeløp']
+    @data
   end
 end
