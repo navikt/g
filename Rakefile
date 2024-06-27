@@ -7,7 +7,7 @@ task default: :test
 desc 'Run tests'
 Rake::TestTask.new do |t|
   ENV['GRUNNBELOP'] = File.expand_path('test/fixtures/grunnbeløp.json')
-  ENV['ENGANGSSTØNAD'] = File.expand_path('test/fixtures/engangsstønad.json')
+  ENV['ENGANGSSTONAD'] = File.expand_path('test/fixtures/engangsstønad.json')
 
   t.libs << 'test'
   t.test_files = FileList['test/test_*.rb']

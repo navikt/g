@@ -14,7 +14,7 @@ RUN bundle install
 FROM ruby:3.3-slim
 
 ENV "GRUNNBELOP" "./grunnbeløp.json"
-ENV "ENGANGSSTØNAD" "./engangsstønad.json"
+ENV "ENGANGSSTONAD" "./engangsstønad.json"
 
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 

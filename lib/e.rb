@@ -18,7 +18,7 @@ class Engangsstoenad < Grape::Entity
 end
 
 module E
-  @data = JSON.parse(File.read(ENV.fetch('ENGANGSSTØNAD', './engangsstønad.json')), object_class: Hash)
+  @data = JSON.parse(File.read(ENV.fetch('ENGANGSSTONAD', './engangsstønad.json')), object_class: Hash)
   @date_format = '%Y-%m-%d'
 
   def self.by_date(needle)

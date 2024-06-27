@@ -101,7 +101,7 @@ describe GAPI do
         get '/api/v1/historikk/engangsst%C3%B8nad'
 
         assert_predicate last_response, :ok?
-        assert_equal 10, JSON.parse(last_response.body).size
+        assert_equal 5, JSON.parse(last_response.body).size
       end
 
       it 'returnerer historikk for engangsstønad fra og med dato' do
