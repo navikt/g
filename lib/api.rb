@@ -16,7 +16,7 @@ class GAPI < Grape::API
   include APIHelper
 
   logger.formatter = GrapeLogging::Formatters::Logstash.new
-  insert_before Grape::Middleware::Error, GrapeLogging::Middleware::RequestLogger, { logger: logger }
+  insert_before Grape::Middleware::Error, GrapeLogging::Middleware::RequestLogger, { logger: }
 
   use Rack::Cors do
     allow do
