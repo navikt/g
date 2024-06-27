@@ -10,6 +10,8 @@ Metrics/BlockLength:
   Enabled: false
 Metrics/AbcSize:
   Enabled: false
+Metrics/ClassLength:
+  Enabled: false
 require:
   - rubocop-minitest
   - rubocop-rake
