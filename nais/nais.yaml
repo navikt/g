@@ -15,6 +15,10 @@ spec:
   env:
     - name: RACK_ENV
       value: production
+  observability:
+    logging:
+      destinations:
+        - id: loki
   resources:
     limits:
       memory: 400Mi
