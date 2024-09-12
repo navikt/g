@@ -69,6 +69,10 @@ class GAPI < Grape::API
     output
   end
 
+  get :isAlive do
+    G.today
+  end
+
   version 'v1', using: :path
   format :json
   prefix :api
@@ -84,7 +88,7 @@ class GAPI < Grape::API
   end
 
   before do
-    if request.path.start_with?('/api/v1/grunn') && request&.location&.data
+    if request.path.start_with?('/api/v1/') && request&.location&.data
       logger.info("Request for #{request.path} from #{request.location.data['ip']}")
     end
   end
