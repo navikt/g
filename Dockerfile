@@ -1,6 +1,6 @@
 FROM ruby:3.3 AS builder
 
-Run gem install bundler
+RUN gem install bundler
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
@@ -13,8 +13,8 @@ RUN bundle install
 
 FROM ruby:3.3-slim
 
-ENV "GRUNNBELOP" "./grunnbeløp.json"
-ENV "ENGANGSSTONAD" "./engangsstønad.json"
+ENV GRUNNBELOP="./grunnbeløp.json"
+ENV ENGANGSSTONAD="./engangsstønad.json"
 
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 
