@@ -19,7 +19,7 @@ gem 'cgi', '>= 0.3.1' # CVE-2021-41816
 group :test, :development do
   gem 'minitest', '~> 5.25'
   gem 'rack-test', '~> 2.1'
-  gem 'rubocop', '~> 1.66', require: false
+  gem 'rubocop', '~> 1.67', require: false
   gem 'rubocop-minitest', '~> 0.36.0', require: false
   gem 'rubocop-rake', '~> 0.6.0', require: false
 end
