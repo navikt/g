@@ -19,7 +19,8 @@ jobs:
       id: docker-build-push
       with:
         team: the-g-team
-    - uses: nais/deploy/actions/deploy@v2
+        identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }} # Provided as Organization Secret
+        project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }} # Provided as Organization Variable    - uses: nais/deploy/actions/deploy@v2
       env:
         CLUSTER: prod-gcp
         RESOURCE: nais/nais.yaml,nais/alert.yaml
