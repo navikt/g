@@ -19,8 +19,10 @@ jobs:
       id: docker-build-push
       with:
         team: the-g-team
+    - uses: nais/deploy/actions/deploy@v2
       env:
         CLUSTER: prod-gcp
         RESOURCE: nais/nais.yaml,nais/alert.yaml
         VAR: image=${{ steps.docker-build-push.outputs.image }}
         TELEMETRY: ${{ steps.docker-build-push.outputs.telemetry }}
+        DEPLOY_SERVER: deploy.nav.cloud.nais.io:443
