@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'geocoder', '~> 1.8'
-gem 'grape', '~> 2.2'
+gem 'grape', '~> 2.3'
 gem 'grape_logging', '~> 1.8'
 gem 'grape-swagger', '~> 2.1'
 gem 'grape-swagger-entity', '~> 0.5.5'
