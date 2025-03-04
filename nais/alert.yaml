@@ -21,13 +21,13 @@ spec:
         annotations:
           action: "Sjekk loggene til app \{{ $labels.log_app }} i \{{ $labels.log_namespace }}, for å se hvorfor det er så mye feil"
       - alert: Ingen200
-        expr: sum(rate(nginx_ingress_controller_requests{namespace="aura", service="g", status="200"}[5m])) == 0
+        expr: sum(rate(nginx_ingress_controller_requests{namespace="the-g-team", service="g", status="200"}[5m])) == 0
         for: 5m
         annotations:
           summary: Ingen http-kall med 200, er alt bra?
           action: Sjekk om appen kjører
       - alert: 500HttpRespons
-        expr: nginx_ingress_controller_requests{namespace="aura", service="g", status="500"} > 0
+        expr: nginx_ingress_controller_requests{namespace="the-g-team", service="g", status="500"} > 0
         for: 5m
         annotations:
           summary: Appen returnerte Http Status 500
