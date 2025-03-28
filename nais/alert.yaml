@@ -27,7 +27,7 @@ spec:
           summary: Ingen http-kall med 200, er alt bra?
           action: Sjekk om appen kjører
       - alert: 500HttpRespons
-        expr: nginx_ingress_controller_requests{namespace="the-g-team", service="g", status="500"} > 0
+        expr: sum(rate(nginx_ingress_controller_requests{namespace="the-g-team", service="g", status="500"}[5m])) > 0
         for: 5m
         annotations:
           summary: Appen returnerte Http Status 500
