@@ -1,6 +1,9 @@
 name: Testing
 on: push
 
+permissions:
+  contents: read
+
 jobs:
   testing:
     name: Run tests

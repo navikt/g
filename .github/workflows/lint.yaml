@@ -1,6 +1,9 @@
 name: Linting
 on: push
 
+permissions:
+  contents: read
+
 jobs:
   linting:
     name: Run Rubocop
