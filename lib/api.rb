@@ -87,9 +87,7 @@ class GAPI < Grape::API
   end
 
   before do
-    if request.path.start_with?('/api/v1/') && request&.ip
-      logger.info("Request for #{request.path} from #{request.ip}")
-    end
+    logger.info("Request for #{request.path} from #{request.ip}") if request.path.start_with?('/api/v1/') && request&.ip
   end
 
   desc 'Returnerer dagens grunnbeløp' do
