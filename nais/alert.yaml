@@ -13,13 +13,13 @@ spec:
         expr: kube_deployment_status_replicas_available{deployment="g"} == 0
         for: 5m
         annotations:
-          summary: "App \{{ $labels.deployment }} har alle replicas nede i \{{ $labels.namespace }}"
-          action: "`kubectl get pod -l app=g -n \{{ $labels.namespace }}` for events, og `kubectl logs -l app=g -n \{{ $labels.namespace }}` for logger"
+          summary: "App {{ $labels.deployment }} har alle replicas nede i {{ $labels.namespace }}"
+          action: "`kubectl get pod -l app=g -n {{ $labels.namespace }}` for events, og `kubectl logs -l app=g -n {{ $labels.namespace }}` for logger"
       - alert: HøyFeilrate
         expr: (100 * sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="g",log_level=~"Warning|Error"}[3m])) / sum by (log_app, log_namespace) (rate(logd_messages_total{log_app="g"}[3m]))) > 10
         for: 3m
         annotations:
-          action: "Sjekk loggene til app \{{ $labels.log_app }} i \{{ $labels.log_namespace }}, for å se hvorfor det er så mye feil"
+          action: "Sjekk loggene til app {{ $labels.log_app }} i {{ $labels.log_namespace }}, for å se hvorfor det er så mye feil"
       - alert: Ingen200
         expr: sum(rate(nginx_ingress_controller_requests{namespace="the-g-team", service="g", status="200"}[5m])) == 0
         for: 5m
