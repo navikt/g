@@ -21,10 +21,10 @@ spec:
         - id: loki
   resources:
     limits:
-      memory: 400Mi
+      memory: 96Mi
     requests:
-      cpu: 50m
-      memory: 150Mi
+      cpu: 10m
+      memory: 96Mi
   liveness:
     path: /isAlive
   readiness:
