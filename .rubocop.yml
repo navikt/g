@@ -12,6 +12,6 @@ Metrics/AbcSize:
   Enabled: false
 Metrics/ClassLength:
   Enabled: false
-require:
+plugins:
   - rubocop-minitest
   - rubocop-rake
