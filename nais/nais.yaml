@@ -6,7 +6,6 @@ metadata:
   labels:
     team: the-g-team
 spec:
-  image: {{ image }}
   port: 9292
   ingresses:
     - https://g.nav.no

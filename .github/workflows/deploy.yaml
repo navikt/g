@@ -1,28 +1,35 @@
-name: Build, push, and deploy
+name: Build and deploy
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
-
 jobs:
-  build-deploy:
-    name: Build and push Docker container
+  build_and_deploy:
+    name: Build, push and deploy
     runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
+      actions: read
     steps:
-    - uses: actions/checkout@v4
-    - name: Push docker image to GAR
-      uses: nais/docker-build-push@v0
-      id: docker-build-push
-      with:
-        team: the-g-team
-    - uses: nais/deploy/actions/deploy@v2
-      env:
-        CLUSTER: prod-gcp
-        RESOURCE: nais/nais.yaml,nais/alert.yaml
-        VAR: image=${{ steps.docker-build-push.outputs.image }}
-        TELEMETRY: ${{ steps.docker-build-push.outputs.telemetry }}
-        DEPLOY_SERVER: deploy.nav.cloud.nais.io:443
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for what-changed action
+      - name: Determine what to do
+        id: changed-files
+        uses: "nais/what-changed@main"
+        with:
+          files: nais/nais.yaml,nais/alert.yaml
+      - name: Build and push image and SBOM to OCI registry
+        if: steps.changed-files.outputs.changed != 'only-inputs'
+        uses: nais/docker-build-push@v0
+        id: docker-build-push
+        with:
+          team: the-g-team
+      - name: Deploy to Nais
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: nais/nais.yaml,nais/alert.yaml
+          WORKLOAD_IMAGE: ${{ steps.docker-build-push.outputs.image }}
+          TELEMETRY: ${{ steps.docker-build-push.outputs.telemetry }}
