@@ -87,8 +87,8 @@ class GAPI < Grape::API
   end
 
   before do
-    if request.path.start_with?('/api/v1/') && request&.location&.data
-      logger.info("Request for #{request.path} from #{request.location.data['ip']}")
+    if request.path.start_with?('/api/v1/') && request&.ip
+      logger.info("Request for #{request.path} from #{request.ip}")
     end
   end
 
