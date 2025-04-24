@@ -15,7 +15,8 @@ class GAPI < Grape::API
   include APIHelper
 
   logger.formatter = GrapeLogging::Formatters::Logstash.new
-  insert_before Grape::Middleware::Error, GrapeLogging::Middleware::RequestLogger, { logger: }
+  insert_before Grape::Middleware::Error, GrapeLogging::Middleware::RequestLogger,
+                { logger: logger, include: [GrapeLogging::Loggers::ClientEnv.new] }
 
   use Rack::Cors do
     allow do
@@ -84,10 +85,6 @@ class GAPI < Grape::API
     def logger
       GAPI.logger
     end
-  end
-
-  before do
-    logger.info("Request for #{request.path} from #{request.ip}") if request.path.start_with?('/api/v1/') && request&.ip
   end
 
   desc 'Returnerer dagens grunnbeløp' do
