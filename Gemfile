@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem 'geocoder', '~> 1.8'
 gem 'grape', '~> 2.3'
 gem 'grape_logging', '~> 1.8'
 gem 'grape-swagger', '~> 2.1'
@@ -13,7 +12,6 @@ gem 'prometheus-client', '~> 4.2'
 gem 'puma', '~> 6.6'
 gem 'rack-cors', '~> 2.0'
 gem 'rake', '~> 13.2'
-
 gem 'cgi', '>= 0.3.1' # CVE-2021-41816
 
 group :test, :development do
