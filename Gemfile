@@ -8,7 +8,7 @@ gem 'cgi', '>= 0.3.1' # CVE-2021-41816
 gem 'grape', '~> 2.3'
 gem 'grape_logging', '~> 1.8'
 gem 'grape-swagger', '~> 2.1'
-gem 'grape-swagger-entity', '~> 0.6.0'
+gem 'grape-swagger-entity', '~> 0.6.2'
 gem 'prometheus-client', '~> 4.2'
 gem 'puma', '~> 6.6'
 gem 'rack-cors', '~> 2.0'
