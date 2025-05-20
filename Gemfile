@@ -11,7 +11,7 @@ gem 'grape-swagger', '~> 2.1'
 gem 'grape-swagger-entity', '~> 0.6.2'
 gem 'prometheus-client', '~> 4.2'
 gem 'puma', '~> 6.6'
-gem 'rack-cors', '~> 2.0'
+gem 'rack-cors', '~> 3.0'
 gem 'rake', '~> 13.2'
 
 group :test, :development do
