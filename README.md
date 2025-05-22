@@ -14,12 +14,14 @@ Opprett et issue eller send en e-post til Kyrre.Havik@nav.no.
 
 ## Utregninger
 
+Kan også bare kjøre `ruby calc.rb Ny-G Forrige-G`.
+
 ### Gjennomsnitt per år
 
 ```
-G fra året før / 12 * 4
+(G fra året før / 12) * 4
 +
-Ny G / 12 * 8
+(Ny G / 12) * 8
 ```
 
 ### Omregningsfaktor
