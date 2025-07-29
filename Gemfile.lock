@@ -39,8 +39,8 @@ GEM
       dry-inflector (~> 1.0)
       dry-logic (~> 1.4)
       zeitwerk (~> 2.6)
-    grape (2.4.0)
-      activesupport (>= 6.1)
+    grape (2.3.0)
+      activesupport (>= 6)
       dry-types (>= 1.1)
       mustermann-grape (~> 1.1.0)
       rack (>= 2)
@@ -128,7 +128,7 @@ PLATFORMS
 
 DEPENDENCIES
   cgi (>= 0.3.1)
-  grape (~> 2.4)
+  grape (= 2.3)
   grape-swagger (~> 2.1)
   grape-swagger-entity (~> 0.6.2)
   grape_logging (~> 1.8)
