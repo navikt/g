@@ -5,10 +5,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'cgi', '>= 0.3.1' # CVE-2021-41816
-gem 'grape', '2.3' # Can be updated when grape_logger is bumped
+gem 'grape', '2.4.0' # Can be updated when grape_logger is bumped
 gem 'grape_logging', '~> 1.8'
 gem 'grape-swagger', '~> 2.1'
-gem 'grape-swagger-entity', '~> 0.6.2'
+gem 'grape-swagger-entity', '~> 0.7.0'
 gem 'prometheus-client', '~> 4.2'
 gem 'puma', '~> 6.6'
 gem 'rack-cors', '~> 3.0'
