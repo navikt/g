@@ -62,6 +62,10 @@ class GAPI < Grape::API
     <p>API-et er open source, og du finner kildekoden på <a href="https://github.com/navikt/g">https://github.com/navikt/g</a>.</p>
     <p>API-et er registrert i <a href="https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-05f2e6939cc1">
     Felles datakatalog</a>.</p>
+
+    <h2>Tilgjengelighetserklæring</h2>
+    <p>Erklæring på <a href="https://uustatus.no/nb/erklaringer/publisert/fea86628-2385-4568-ac54-2a46ad9cdfe1">bokmål</a>.</p>
+    <p>Erklæring på <a href="https://uustatus.no/nn/erklaringer/publisert/fea86628-2385-4568-ac54-2a46ad9cdfe1">nynorsk</a>.</p>
   </body>
 </html>
 )
