@@ -1,5 +1,13 @@
 [
   {
+    "dato": "2026-05-01",
+    "grunnbeløp": 136549,
+    "grunnbeløpPerMåned": 11379,
+    "gjennomsnittPerÅr": 134419,
+    "omregningsfaktor": 1.049086,
+    "virkningstidspunktForMinsteinntekt": "2025-06-02"
+  },
+  {
     "dato": "2025-05-01",
     "grunnbeløp": 130160,
     "grunnbeløpPerMåned": 10847,
