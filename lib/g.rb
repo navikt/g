@@ -32,9 +32,9 @@ module G
   def self.by_date(needle)
     datoer = @data.map { |obj| DateTime.strptime(obj['dato'], @date_format) }
     found = datoer
-              .select { |date| date <= needle.to_datetime }
-              .min_by { |date| (date.to_time - needle.to_time).abs }
-              .strftime(@date_format)
+            .select { |date| date <= needle.to_datetime }
+            .min_by { |date| (date.to_time - needle.to_time).abs }
+            .strftime(@date_format)
     @data.select { |obj| obj['dato'] == found }.first
   end
 

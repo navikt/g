@@ -24,9 +24,9 @@ module E
   def self.by_date(needle)
     datoer = @data.map { |obj| DateTime.strptime(obj['fom'], @date_format) }
     found = datoer
-              .select { |date| date <= needle.to_datetime }
-              .min_by { |date| (date.to_time - needle.to_time).abs }
-              .strftime(@date_format)
+            .select { |date| date <= needle.to_datetime }
+            .min_by { |date| (date.to_time - needle.to_time).abs }
+            .strftime(@date_format)
     @data.select { |obj| obj['fom'] == found }.first
   end
 
