@@ -26,7 +26,42 @@ class GAPI < Grape::API
   end
 
   content_type :txt, 'text/plain; charset=utf-8'
+  content_type :html, 'text/html; charset=utf-8'
   content_type :json, 'application/json'
+
+  desc 'Swagger UI', hidden: true
+  get :swagger do
+    content_type :html
+
+    <<~HTML
+      <!doctype html>
+      <html lang="no">
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Swagger UI</title>
+          <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" />
+          <style>
+            body { margin: 0; }
+          </style>
+        </head>
+        <body>
+          <div id="swagger-ui"></div>
+
+          <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+          <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-standalone-preset.js"></script>
+          <script>
+            window.ui = SwaggerUIBundle({
+              url: "/api/v1/swagger_doc",
+              dom_id: "#swagger-ui",
+              presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+              layout: "StandaloneLayout"
+            });
+          </script>
+        </body>
+      </html>
+    HTML
+  end
 
   desc 'Litt om API-et', hidden: true
   get do
@@ -46,22 +81,19 @@ class GAPI < Grape::API
 
     <h2>Grunnbeløp</h2>
     <p>Grunnbeløpet (G) per #{g['dato']} er #{g['grunnbeløp']} kroner.</p>
-    <p>API-et er dokumentert med Swagger, og du kan se dokumentasjonen på
-    <a href="https://g.nav.no/api/v1/swagger_doc">https://g.nav.no/api/v1/swagger_doc</a>.</p>
     <p>Du finner også grunnbeløpet på
     <a href="https://www.nav.no/grunnbelopet">https://www.nav.no/grunnbelopet</a>.</p>
 
     <h2>Engangsstønad</h2>
     <p>Engangsstønaden fra og med #{engangsstønad['fom']} er #{engangsstønad['verdi']} kroner.</p>
-    <p>API-et er dokumentert med Swagger, og du kan se dokumentasjonen på
-    <a href="https://g.nav.no/api/v1/swagger_doc">https://g.nav.no/api/v1/swagger_doc</a>.</p>
     <p>Du finner også engangsstønaden på
     <a href="https://www.nav.no/engangsstonad">https://www.nav.no/engangsstonad</a>.</p>
 
     <h2>Om API-et</h2>
+    <p>API-et er dokumentert med Swagger, og du kan se dokumentasjonen på
+    <a href="/swagger">/swagger</a>.</p>
+
     <p>API-et er open source, og du finner kildekoden på <a href="https://github.com/navikt/g">https://github.com/navikt/g</a>.</p>
-    <p>API-et er registrert i <a href="https://data.norge.no/dataservices/27f14a5e-762a-32d7-9cef-05f2e6939cc1">
-    Felles datakatalog</a>.</p>
 
     <h2>Tilgjengelighetserklæring</h2>
     <p>Erklæring på <a href="https://uustatus.no/nb/erklaringer/publisert/fea86628-2385-4568-ac54-2a46ad9cdfe1">bokmål</a>.</p>
