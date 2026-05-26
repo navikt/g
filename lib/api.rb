@@ -93,7 +93,7 @@ class GAPI < Grape::API
     <p>API-et er dokumentert med Swagger, og du kan se dokumentasjonen på
     <a href="/swagger">/swagger</a>.</p>
 
-    <p>API-et er open source, og du finner kildekoden på <a href="https://github.com/navikt/g">https://github.com/navikt/g</a>.</p>
+    <p>Kildekoden til tjenesten er åpen, og den finner du på <a href="https://github.com/navikt/g">https://github.com/navikt/g</a>.</p>
 
     <h2>Tilgjengelighetserklæring</h2>
     <p>Erklæring på <a href="https://uustatus.no/nb/erklaringer/publisert/fea86628-2385-4568-ac54-2a46ad9cdfe1">bokmål</a>.</p>
