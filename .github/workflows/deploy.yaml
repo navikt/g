@@ -28,7 +28,7 @@ jobs:
         with:
           team: the-g-team
       - name: Deploy to Nais
-        uses: nais/deploy/actions/deploy@v2
+        uses: nais/deploy/actions/deploy@v3
         env:
           CLUSTER: prod-gcp
           RESOURCE: nais/nais.yaml,nais/alert.yaml
