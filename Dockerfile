@@ -1,4 +1,4 @@
-FROM ruby:4.0.8 AS builder
+FROM ruby:4.0.9 AS builder
 
 RUN gem install bundler
 
@@ -11,7 +11,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 
-FROM ruby:4.0.8-slim
+FROM ruby:4.0.9-slim
 
 ENV GRUNNBELOP="./grunnbeløp.json"
 ENV ENGANGSSTONAD="./engangsstønad.json"
